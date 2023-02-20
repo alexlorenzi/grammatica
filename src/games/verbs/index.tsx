@@ -35,7 +35,11 @@ export const VerbGame = () => {
 
   const handleGuess = useCallback(
     (guess: string) => {
-      setGameState(guess === answer ? "CORRECT" : "INCORRECT");
+      setGameState(
+        guess.toLocaleLowerCase() === answer.toLocaleLowerCase()
+          ? "CORRECT"
+          : "INCORRECT"
+      );
       setTimeout(handleStart, 2000);
     },
     [answer, handleStart]
